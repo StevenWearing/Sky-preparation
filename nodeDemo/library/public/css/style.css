@@ -1,0 +1,89 @@
+li {
+  display: inline;
+  padding: 5%;
+  color: black;
+}
+
+li a {
+  font-size: 1.7rem;
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+li a:hover {
+  text-decoration: underline;
+}
+
+
+
+li a:visited {
+  color: black;
+  text-decoration: underline;
+}
+
+
+#nav-bar {
+  background-color: #e8e8e8;
+  display: block;
+}
+
+#logo {
+  max-width: 200px;
+  margin: 3%;
+  margin-left: 2%;
+}
+
+
+
+#main-story-picture {
+  max-width: 97%;
+  min-width: 70%;
+  margin: 3%;
+  display: block;
+  margin: auto;
+}
+
+#main-story-title {
+  padding: 2%;
+  display: block;
+  margin: auto;
+}
+
+#main-story-summary {
+  font-size: 1.7rem;
+  padding: 2%;
+  display: block;
+  margin: auto;
+}
+
+
+
+
+#minor-story-picture {
+  max-width: 90%;
+  min-height: 100%;
+  margin: 3%;
+  margin: auto;
+}
+
+#minor-story-title {
+  font-size: 1.7rem;
+  padding: 2%;
+  display: block;
+  margin: auto;
+}
+
+#minor-story-summary {
+  font-size: 1.7rem;
+  padding: 2%;
+  display: block;
+  margin: auto;
+}

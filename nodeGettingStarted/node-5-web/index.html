@@ -1,0 +1,42 @@
+<html>
+
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        
+        <title>Chat</title>
+        
+        <script type="text/javascript">
+            
+            var socket = null;
+            function onload() {
+                socket = io.connect();
+                socket.on('update-chat', function(data) {
+                    var chat = document.getElementById('chat-area');
+                    chat.innerText += "\n\n" + data;
+                });
+            };
+            function submitData() {
+                var data = document.getElementById('inputdata').value;
+                socket.emit('submit', data);
+            };
+
+            
+
+        </script>
+    </head>
+
+
+
+    <body onload='onload()'>
+        <h1>Sample websocket page - (Chat room)</h1>
+        <form action="#">
+            <p>
+                Comment: 
+                <input type="text" id="inputdata"/>
+                <input value="SEND" type="button" onclick="submitData()"/>
+            </p>
+            <p id="chat-area"></p>
+        </form>
+    </body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/style.css" />
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+  </head>
+
+
+
+  <body>
+
+  <div id="nav-bar">
+    <div class="container">
+      <div>
+        <a href="/"><img id="logo" src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/32104495_106769096865556_8712859644093005824_n.jpg?_nc_cat=0&oh=ff3df2a2860b54ce4e4a23c69efddafb&oe=5B82B805"/></a>
+      
+        <!--<div class="search-container" style="float: right">
+          <input type="text" placeholder="Search.." name="search">
+          <a href="/under-development"><button style="background-color: blue"></button></a>
+        </div>-->
+      </div>
+      
+    
+      <div>
+        <ul>
+
+          <li>
+            <a id="homeTab" href="/">Home</a>
+          </li>
+
+          <% for(let i=0; i < nav.length; i++) { %>
+          <li>
+            <a id="<%=nav[i].id%>" href="<%=nav[i].link%>"><%=nav[i].title%></a>
+          </li>
+          <% } %>
+
+        </ul>
+
+
+      </div>
+    </div>
+  </div>
+    
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-8">
+
+        <h3>Top Stories</h3>
+        <hr style="border-color: silver">
+
+
+        <div id="main-story" style="margin: auto; padding:auto">
+          <a href="/story/<%=stories[8].StoryID%>"><h2 id="main-story-title"><%=stories[8].Title%></h2></a>
+          <a href="/story/<%=stories[8].StoryID%>"><img id="main-story-picture" src="<%=stories[8].Picture%>"/></a>
+          <p id="main-story-summary"><%=stories[8].Summary%></p>
+        </div>
+	
+        <br>
+
+        <div class="row">
+          <div id="minor-story" class="col-md-4">
+            <a href="/story/<%=stories[0].StoryID%>"><img id="minor-story-picture" style="max-width: 100%" src="<%=stories[0].Picture%>"/></a>
+            <br><br>
+            <a href="/story/<%=stories[0].StoryID%>"><p id="minor-story-title"><b><%=stories[0].Title%></b></p></a>
+            
+            <p id="minor-story-summary"><%=stories[0].Summary%></p>
+          </div>
+          <div id="minor-story" class="col-md-4">
+            <a href="/story/<%=stories[3].StoryID%>"><img id="minor-story-picture" style="max-width: 100%" src="<%=stories[3].Picture%>"/></a>
+            <br><br>
+            <a href="/story/<%=stories[3].StoryID%>"><p id="minor-story-title"><b><%=stories[3].Title%></b></p></a>
+            
+            <p id="minor-story-summary"><%=stories[3].Summary%></p>
+          </div>
+          <div id="minor-story" class="col-md-4">
+            <a href="/story/<%=stories[4].StoryID%>"><img id="minor-story-picture" style="max-width: 100%" src="<%=stories[4].Picture%>"/></a>
+            <br><br>
+            <a href="/story/<%=stories[4].StoryID%>"><p id="minor-story-title"><b><%=stories[4].Title%></b></p></a>
+            
+            <p id="minor-story-summary"><%=stories[4].Summary%></p>
+          </div>
+        </div>
+        </div>
+    
+
+        <div class="col-md-3">
+          <div style="background-color: #e8e8e8; margin-top: 9%; padding-left: 6%; padding-right: 6%; padding-top: 2%">
+            <h3>Highlights</h3>
+            <hr style="border-color: silver">
+
+            <% for (let i = 0; i < 4; i++) { %>
+
+            <div>
+              <a href="/story/<%=stories[10 - i].StoryID%>">
+                <img id="minor-story-picture" style="max-width: 100%" src="<%=stories[10 - i].Picture%>"/>
+              </a>
+              <br><br>
+              <a href="/story/<%=stories[10 - i].StoryID%>">
+                <h4 style="padding-bottom: 10%"><%=stories[10 - i].Title%></h4>
+              </a>
+            </div>
+
+            <% } %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  </body>
+
+</html>

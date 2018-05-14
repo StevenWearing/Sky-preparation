@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+
+
+<body>
+
+  <div id="nav-bar">
+    <div class="container">
+      <div>
+        <a href="/"><img id="logo" src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/32104495_106769096865556_8712859644093005824_n.jpg?_nc_cat=0&oh=ff3df2a2860b54ce4e4a23c69efddafb&oe=5B82B805"/></a>
+      </div>
+      
+    
+      <div>
+        <ul>
+
+          <li>
+            <a id="homeTab" href="/">Home</a>
+          </li>
+
+          <% for(let i=0; i < nav.length; i++) { %>
+          <li>
+            <a id="<%=nav[i].id%>" href="<%=nav[i].link%>"><%=nav[i].title%></a>
+          </li>
+          <% } %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+    
+
+
+    <div class="container">
+
+      <div id="main-story" style="margin: auto; padding:auto">
+        <br>
+        <h1 id="main-story-title"><%=story.Title%></h1>
+        
+        <div class="row">
+        
+          <div class="col-md-8">
+        
+            <p id="main-story-summary"><%=story.Summary%></p>
+            <img id="main-story-picture" src="<%=story.Picture%>"/>
+            <br>
+            <br>
+            <div style="padding-left: 15%; padding-right: 15%">
+              <h5><%-story.Article%></h5>
+            </div>
+          </div>
+    
+
+          <div class="col-md-3">
+            <div style="margin-top: 9%; padding-left: 6%; padding-right: 6%; padding-top: 2%">
+              <h3>Top Stories</h3>
+              <hr style="border-color: silver">
+
+              
+              <div>
+                <a href="/story/12">
+                  <img id="minor-story-picture" style="max-width: 100%" src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/32247214_106716150204184_7528931722604314624_n.jpg?_nc_cat=0&oh=b62e1f21727f2559131c403ac6e88374&oe=5B9701B7"/>
+                </a>
+                <br><br>
+                <a href="/story/12">
+                  <h4 style="padding-bottom: 10%">Hepatitis B discovered in 4,500-year-old skeleton</h4>
+                </a>
+              </div>
+              <div>
+                <a href="/story/13">
+                  <img id="minor-story-picture" style="max-width: 100%" src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/32169348_106716163537516_1059570789860245504_n.jpg?_nc_cat=0&oh=39c7dadfa9328712445ca3e3261404ed&oe=5B905149"/>
+                </a>
+                <br><br>
+                <a href="/story/13">
+                  <h4 style="padding-bottom: 10%">Elon Musk elected as Fellow of the Royal Society</h4>
+                </a>
+              </div>
+              <div>
+                <a href="/story/9">
+                  <img id="minor-story-picture" style="max-width: 100%" src="https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/32089201_106662816876184_7113565216364822528_n.jpg?_nc_cat=0&oh=edabe442e9623891e23d830c032842b8&oe=5B9AB2B4"/>
+                </a>
+                <br><br>
+                <a href="/story/9">
+                  <h4 style="padding-bottom: 10%">Trump-Kim summit date revealed within days</h4>
+                </a>
+              </div>
+              
+
+              
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    
+ 
+  
+</body>
+
+</html>

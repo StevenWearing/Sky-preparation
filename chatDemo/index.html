@@ -1,0 +1,142 @@
+<html>
+
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+        <title>Chat</title>
+        
+        <script type="text/javascript">
+            
+            var socket = null;
+            function onload() {
+                socket = io.connect();
+                socket.on('update-chat', function(data) {
+                    var chat = document.getElementById('chat-area');
+                    chat.innerText += "\n\n   " + data;
+                });
+                /*socket.on('pieceUpdate', function() {
+                    document.getElementById('piece1').style.backgroundColor = 'black';
+                })*/
+            };
+            function submitData() {
+                var data = document.getElementById('inputdata').value;
+                socket.emit('submit', data);
+            };
+            
+
+            var pieces = document.getElementsByClassName('piece');
+            
+            function addCheckerboardEventListener(piece) {
+                piece.addEventListener('mouseover', function() {
+                    piece.style.backgroundColor = 'black';
+                    /*socket.emit('piece', piece);*/
+                });
+            }
+            
+            function boardStart() {
+                for (var i = 0; i < pieces.length; i++) {
+                    var piece = pieces[i];
+                    piece.style.backgroundColor = 'silver';
+                    addCheckerboardEventListener(piece);
+                }
+
+                document.getElementById('reset').addEventListener('click', function() {
+                    let pieCes = document.getElementsByClassName('piece');
+
+                    for (var i = 0; i < pieCes.length; i++) {
+                        var piece = pieCes[i];
+                        piece.style.backgroundColor = 'silver';
+                    }
+                });
+            }
+
+
+            /*
+            var piece1 = document.getElementById('piece1');
+            function g() {
+                piece1.addEventListener('mouseover', function() {
+                    piece1.style.backgroundColor = 'black';
+                    socket.emit('piece');
+                })
+            }*/
+
+        </script>
+    </head>
+
+
+
+    <body onload='onload(); boardStart()'>
+        <div>
+            <h1>Sample websocket page - (Chat room)</h1>
+            <form action="#">
+            <p>
+                Comment: 
+                <input type="text" id="inputdata"/>
+                <input value="SEND" type="button" onclick="submitData()"/>
+            </p>
+        </form>
+
+        <button id="reset">Reset</button>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p id="chat-area"></p>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <button id="piece1" class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                </div>
+                <div class="row">
+                     <button class="piece" style="padding: 5%"></button>
+                     <button class="piece" style="padding: 5%"></button>
+                     <button class="piece" style="padding: 5%"></button>
+                     <button class="piece" style="padding: 5%"></button>
+                     <button class="piece" style="padding: 5%"></button>
+                     <button class="piece" style="padding: 5%"></button>
+                </div>
+                <div class="row">
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                </div>    
+                <div class="row">
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                </div>
+                <div class="row">
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                </div>
+                <div class="row">
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                    <button class="piece" style="padding: 5%"></button>
+                </div>
+            </div>
+        </div>
+                
+    
+    
+    </body>
+
+</html>
