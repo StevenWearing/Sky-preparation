@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+</head>
+
+
+
+<body>
+          <div class="row" style="margin: auto">    
+            <br>
+            <div class="col-sm-8 text-center">
+              <br><br>
+              <h1>YOUR ORDER</h1>
+                <br><br>
+
+
+               <% for (let i = 0; i < confirmedOrder.order.length; i++) { %>
+                <h5><%=confirmedOrder.order[i][1]%>  x  <%=confirmedOrder.order[i][0]%></h5>
+               <% } %>
+
+            </div>
+            
+
+
+
+
+            <div class="col-sm-4">
+            <br><br>
+            <form action="/profile" method="get" >
+                 <input type="submit" value="Your profile" class="btn btn-danger">
+            </form>
+            </div>
+
+          </div>
+</body>
+
+</html>

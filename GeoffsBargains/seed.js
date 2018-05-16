@@ -3,16 +3,52 @@ const debug = require('debug');
 
 const items = [
   {
-    name: 'Eggs',
-    price: 1
+    name: 'Eggs'
   },
   {
-    name: 'Milk',
-    price: 1
+    name: 'Milk'
   },
   {
-    name: 'Onions',
-    price: 0.5
+    name: 'Onions'
+  }, 
+  {
+    name: 'Crisps'
+  },
+  {
+    name: 'Fish'
+  },
+  {
+    name: 'Chips'
+  },
+  {
+    name: 'Pizza'
+  },
+  {
+    name: 'Cat'
+  },
+  {
+    name: 'Tea'
+  }, 
+  {
+    name: 'Butter'
+  },
+  {
+    name: 'Cucumber'
+  },
+  {
+    name: 'Bell Peppers'
+  },
+  {
+    name: 'Bread'
+  },
+  {
+    name: 'Pen'
+  }, 
+  {
+    name: 'Garlic Mayonnaise'
+  },
+  {
+    name: 'Jelly'
   }
 ];
 

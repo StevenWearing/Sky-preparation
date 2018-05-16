@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+  <script>
+
+    let typeOfItem = null;
+    let numberOfItem = null;
+    let displayedList = null;
+    let list = [];
+    let id = 0;
+
+    function startup() {
+      setTypeAndNumber();
+      displayedList = document.getElementById("basket");
+      list = [];
+    }
+
+    function setTypeAndNumber() {
+      typeOfItem = document.getElementById("typeOfItem").value;
+      numberOfItem = document.getElementById("numberOfItem").value;
+    }
+
+
+    function addToList() {
+      setTypeAndNumber();
+      list.push([id, typeOfItem, numberOfItem]);
+
+      addToDisplayedList();
+    }
+
+    function addToDisplayedList() {
+      let newListItem = document.createElement("li");
+      newListItem.setAttribute("id", id);
+      //newListItem.setAttribute("style", "margin-top: 5%");
+
+      let spacer = document.createElement("br");
+
+      let removeButton = document.createElement("button");
+      //removeButton.setAttribute("id", id);
+      removeButton.setAttribute("class", "btn btn-danger removeButton");
+
+      let content = document.createTextNode(numberOfItem + " x " + typeOfItem + "    ");
+      let removeLabel = document.createTextNode("remove");
+
+        let h = id;
+        removeButton.addEventListener("click", function() {
+          //document.getElementById(h).removeChild(document.getElementById(h).childNodes[0]);
+          displayedList.removeChild(document.getElementById(h));
+          for (let i = 0; i < list.length; i++) {
+            if (list[i][0] === h) {
+              list.splice(i, 1);
+              return;
+            }
+          }
+        });
+
+      removeButton.appendChild(removeLabel);
+      newListItem.appendChild(content);
+      newListItem.appendChild(removeButton);
+      displayedList.appendChild(newListItem);
+      displayedList.appendChild(spacer);
+
+      //refreshRemoveEventListeners();
+
+      id++;
+    }
+
+    function refreshRemoveEventListeners() {
+      let list = document.getElementsByClassName("removeButton");
+
+      for (let button in list) {
+        list[button].addEventListener("click", function() {
+          let id = list[button].id;
+          displayedList.removeChild(document.getElementById(id));
+          list.splice(id, 1);
+        });
+      }
+    }
+
+    function confirmOrder() {
+      let form = document.createElement("form");
+      form.setAttribute("method", "post");
+      form.setAttribute("action", "/shop/postShopOrder");
+
+      for (let item in list) {
+        let typeField = document.createElement("input");
+        let numberField = document.createElement("input");
+
+        typeField.setAttribute("type", "hidden");
+        typeField.setAttribute("name", item);
+        typeField.setAttribute("value", list[item][1]);
+
+        numberField.setAttribute("type", "hidden");
+        numberField.setAttribute("name", item);
+        numberField.setAttribute("value", list[item][2]);
+
+        form.appendChild(typeField);
+        form.appendChild(numberField);
+      }
+
+      document.body.appendChild(form);
+      form.submit();
+    }
+
+</script>
+
+</head>
+
+
+
+<body onload="startup()">
+          <div class="row" style="margin: auto">    
+            <br>
+            <div class="col-sm-3">
+              <br><br>
+              <h3>Type of item:</h3>
+              <select id="typeOfItem">
+               <% for (let i = 0; i < items.length; i++) { %>
+                <option value="<%=items[i].name%>"><%=items[i].name%></option>
+               <% } %>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <br><br>
+              <h3>Number of item:</h3>
+               <select id="numberOfItem">
+               <% for (let i = 1; i < 101; i++) { %>
+                <option value="<%=i%>"><%=i%></option>
+               <% } %>
+                </select> 
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+            <form action="/profile" method="get" >
+                 <input type="submit" value="Your profile" class="btn btn-danger">
+            </form>
+
+            </div>
+            <div class="col-sm-2">
+              <br><br><br><br><br><br><br>
+                <button class="btn btn-primary" onclick="addToList()">ADD</button>
+            </div>
+
+
+            <div class="col-sm-4">
+            <br><br>
+                <div class="row">
+                 <div class="col-sm-8">
+                    <h2>Your basket</h2>
+                 </div>
+                 <div class="col-sm-4">
+                 <br><br>
+                    <button class="btn btn-success" onclick="confirmOrder()">
+                        Confirm order
+                    </button>
+                 </div>
+
+                    <ul style="margin: auto" id="basket">
+                    </ul>
+            </div>
+
+          </div>
+
+</body>
+
+
+
+</html>

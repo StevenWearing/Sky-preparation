@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+</head>
+
+
+
+<body>
+          <div class="row" style="margin: auto">    
+            <br>
+            <div class="col-sm-4 text-center">
+              <h3>Login!</h3>
+              <br>
+              <form name="signInForm" action="/" method="post">
+                <h5>Username: </h5><input name="username" id="username"/><br/>
+                <br>
+                <h5>Password: </h5><input type="password" name="password" id="password"/><br/> <!-- normally include 'type="password"' so as to not reveal  -->
+                <br>
+                <input type="submit" value="Login" />
+              </form>
+            </div>
+
+            <div class="col-sm-4 text-center">
+            <br><br>
+              <h1><= OR =></h1>
+            </div>
+
+            <div class="col-sm-4 text-center">
+              <h3>Register!</h3>
+              <br>
+              <form name="registrationForm" action="/register" method="post">
+                <h5>Username: </h5><input name="username" id="username"/><br/>
+                <br>
+                <h5>Password: </h5><input type="password" name="password" id="password"/><br/> <!-- normally include 'type="password"' so as to not reveal  -->
+                <br>
+                <input type="submit" value="Register" />
+              </form>
+            </div>
+
+          </div>
+</body>
+
+</html>
